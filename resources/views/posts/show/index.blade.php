@@ -1,20 +1,20 @@
 <div>
 
-    <article class="relative p-10">
+    <article class="relative md:p-10">
 
         @auth
             @include('posts.show.partials.manage-post-dropdown')
         @endauth
 
-        <div class="p-10 mb-12 bg-gray-200 rounded-lg">
+        <div class="p-5 mb-6 bg-gray-200 rounded-lg md:mb-12 md:p-10">
 
-            <div class="max-w-xl mx-4 space-y-10 lg:mx-auto">
+            <div class="max-w-xl space-y-5 md:space-y-10 lg:mx-auto">
 
-                <h1 class="text-5xl font-black text-center text-gray-700">
+                <h1 class="text-3xl font-black text-center text-gray-700 md:text-5xl">
                     {{ $post->title }}
                 </h1>
         
-                <p class="font-mono">
+                <p class="font-mono text-sm md:text-base">
                     {{ $post->excerpt }}
                 </p>
         

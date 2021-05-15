@@ -4,16 +4,16 @@
     <div class="h-2 bg-gradient-to-tr from-purple-300 to-purple-400"></div>
 
     <!-- header nav -->
-    <div class="relative flex items-center justify-between p-5 h-[76px]">
+    <div class="relative flex items-center justify-between px-3 md:px-5 py-5 h-[76px]">
 
         <!-- logo -->
         <a href="{{ route('welcome') }}" class="relative w-8 h-8 transform focus:outline-none focus:scale-110">
             <span class="sr-only">Go back to the homepage</span>
-            <x-icon-me-wizard class="absolute top-[-12px] h-14" alt="My Octocat!" />
+            <x-icon-me-wizard class="absolute top-[-5px] md:top-[-12px] h-10 md:h-14" alt="My Octocat!" />
         </a>
 
-        <!-- main nav links -->
-        <div class="w-full max-w-4xl">
+        <!-- main desktop nav -->
+        <div class="hidden w-full max-w-4xl md:block">
 
             <nav class="flex items-center w-full space-x-4">
                 
@@ -74,7 +74,7 @@
         </div>
 
         <!-- profile dropdown -->
-        <div x-data="{ open: false }" class="relative w-10 h-10 group">
+        <div x-data="{ open: false }" class="relative hidden w-10 h-10 group md:block">
             
             @auth
             

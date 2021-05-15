@@ -13,7 +13,9 @@
     <div class="max-w-xl mx-4 mt-10 mb-16 lg:mx-auto">
 
         <ul class="flex flex-col divide-y">
-            @each('blog.partials.post-item', $posts, 'post')
+            @foreach ($posts as $post)
+                @include('blog.partials.post-item')
+            @endforeach
         </ul>
 
     </div>    
