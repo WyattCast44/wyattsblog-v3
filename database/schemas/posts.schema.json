@@ -1,0 +1,15 @@
+{
+    "name": "posts",
+    "schema": {
+        "id": "bigint",
+        "title": "string",
+        "slug": "string",
+        "excerpt": "text",
+        "content": "text",
+        "published": "boolean",
+        "published_at": "datetime",
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "deleted_at": "datetime"
+    }
+}

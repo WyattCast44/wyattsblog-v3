@@ -1,0 +1,23 @@
+.EasyMDEContainer {
+    z-index: 1000 !important;
+}
+
+.editor-toolbar {
+    @apply border border-gray-400;
+}
+
+.editor-toolbar.fullscreen {
+    z-index: 1000 !important;
+}
+
+.editor-preview-active-side .editor-preview-side {
+    z-index: 1000 !important;
+}
+
+.EasyMDEContainer .CodeMirror {
+    @apply border border-gray-400;
+}
+
+.CodeMirror-fullscreen {
+    z-index: 1000 !important;
+}

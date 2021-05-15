@@ -1,0 +1,11 @@
+{
+    "name": "taggables",
+    "schema": {
+        "id": "bigint",
+        "tag_id": "bigint",
+        "taggable_type": "string",
+        "taggable_id": "bigint",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

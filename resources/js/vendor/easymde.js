@@ -1,0 +1,1 @@
+window.EasyMDE = require("easymde/dist/easymde.min")

@@ -1,0 +1,43 @@
+a:hover {
+    @apply text-purple-600 underline;
+}
+
+a:focus {
+    @apply text-purple-600 underline;
+}
+
+::selection {
+    @apply bg-purple-200;
+}
+
+blockquote > p::selection {
+    @apply bg-purple-300;
+}
+
+.bg-purple-200 ::selection {
+    @apply bg-purple-300;
+}
+
+.prose a {
+    @apply no-underline;
+}
+
+.prose a:hover {
+    @apply underline;
+}
+
+.prose h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-700;
+}
+
+.prose pre {
+    @apply bg-gray-700;
+}
+
+.prose pre::selection {
+    @apply text-purple-900;
+}
+
+.prose pre code::selection {
+    @apply text-purple-900;
+}

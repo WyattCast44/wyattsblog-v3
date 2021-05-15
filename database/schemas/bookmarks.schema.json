@@ -1,0 +1,12 @@
+{
+    "name": "bookmarks",
+    "schema": {
+        "id": "bigint",
+        "url": "text",
+        "url_hash": "string",
+        "title": "string",
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "deleted_at": "datetime"
+    }
+}

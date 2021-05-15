@@ -1,0 +1,11 @@
+{
+    "name": "webhook_calls",
+    "schema": {
+        "id": "bigint",
+        "name": "string",
+        "payload": "text",
+        "exception": "text",
+        "created_at": "datetime",
+        "updated_at": "datetime"
+    }
+}

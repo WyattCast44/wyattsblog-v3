@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "partials/typography.css";
+@import "partials/utilities.css";
+@import "partials/easymde.css";
