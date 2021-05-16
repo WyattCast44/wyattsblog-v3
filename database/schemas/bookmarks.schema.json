@@ -5,6 +5,9 @@
         "url": "text",
         "url_hash": "string",
         "title": "string",
+        "description": "text",
+        "type": "string",
+        "data": "json",
         "created_at": "datetime",
         "updated_at": "datetime",
         "deleted_at": "datetime"

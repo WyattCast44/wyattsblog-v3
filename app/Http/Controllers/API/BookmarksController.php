@@ -21,11 +21,9 @@ class BookmarksController extends Controller
         ]);
 
         $bookmark = Bookmark::firstOrCreate([
-            'url_hash' => md5($request->url),
-        ]);
-        
-        $bookmark->update([
             'url' => $request->url,
+            'url_hash' => md5($request->url),
+            'status' => Bookmark::$states['waiting'],
         ]);
 
         return response('',  Response::HTTP_CREATED);

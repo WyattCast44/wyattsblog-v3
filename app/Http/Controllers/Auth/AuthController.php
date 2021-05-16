@@ -69,7 +69,7 @@ class AuthController extends Controller
         if ($social->email != 'wyatt.castaneda@gmail.com') {
 
             flash('status', 'error', "Only the site creator can authenticate with GitHub.");
-
+            
             return redirect()->route('welcome');
         } 
 

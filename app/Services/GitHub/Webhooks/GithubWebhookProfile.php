@@ -9,6 +9,6 @@ class GitHubWebhookProfile implements WebhookProfile
 {
     public function shouldProcess(Request $request): bool
     {
-        //
+        return true;
     }
 }

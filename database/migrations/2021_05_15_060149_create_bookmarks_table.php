@@ -18,6 +18,9 @@ class CreateBookmarksTable extends Migration
             $table->text('url');
             $table->string('url_hash')->unique();
             $table->string('title')->index()->nullable();
+            $table->text('description')->nullable();
+            $table->string('type')->index()->nullable();
+            $table->json('data')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

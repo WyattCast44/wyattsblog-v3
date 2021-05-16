@@ -15,6 +15,13 @@ class Bookmark extends Model
 
     protected $guarded = [];
 
+    public static array $states = [
+        'waiting' => 'waiting',
+        'processing' => 'processing',
+        'processed' => 'processed',
+        'failed' => 'failed',
+    ];
+
     /*
     |--------------------------------------------------------------------------
     | Actions/Abilities
