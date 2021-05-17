@@ -84,6 +84,6 @@ class PostEdit extends Component
             'title' => 'Edit ' . $this->post->title,
         ]);
 
-        return view('posts.create.index')->extends('posts.create.layout')->section('page');
+        return view('posts.edit.index')->extends('posts.edit.layout')->section('page');
     }
 }

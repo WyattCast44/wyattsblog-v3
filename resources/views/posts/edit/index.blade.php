@@ -53,7 +53,7 @@
                 </span>
                 
                 <div x-cloak wire:ignore x-data="{ tagify: null }" class="w-full">
-                    <input type="text" id="tag-input" name="tags" wire:model="tags" placeholder="Add or select some tags" class="w-full border-gray-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-purple-500 focus:ring-offset-purple-200 focus:border-gray-300">
+                    <input type="text" id="tag-input" name="tags" wire:model.defer="tags" placeholder="Add or select some tags" class="w-full border-gray-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-purple-500 focus:ring-offset-purple-200 focus:border-gray-300">
                 </div>
         
                 <x-errors.inline key="tags" />
@@ -71,6 +71,12 @@
                                     @endforeach
                                 ]                            
                             });
+
+                            tagify.addTags([
+                                @foreach($post->tags as $tag)
+                                    '{{ $tag->name }}',
+                                @endforeach
+                            ]);
                             
                             input.addEventListener('change', function(event) {
                                 @this.call('changeTags', event.target.value)
