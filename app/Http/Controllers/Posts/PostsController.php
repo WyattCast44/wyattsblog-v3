@@ -40,7 +40,7 @@ class PostsController extends Controller
         $post = Post::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
-            'excerpt' => Str::slug($request->excerpt),
+            'excerpt' => $request->excerpt,
             'content' => $request->content,
         ]);
 
@@ -91,7 +91,7 @@ class PostsController extends Controller
         $post->update([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
-            'excerpt' => Str::slug($request->excerpt),
+            'excerpt' => $request->excerpt,
             'content' => $request->content,
         ]);
 
