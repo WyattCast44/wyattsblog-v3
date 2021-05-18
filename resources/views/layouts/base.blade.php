@@ -11,7 +11,6 @@
     <meta name="description" content="{{ ($pageMeta && isset($pageMeta['description'])) ? $pageMeta['description'] : 'Wyatt Castaneda\'s personal website'  }}">
     <meta name="keywords" content="Wyatt Castaneda, Wyatt Cast, Wyattcastaned44, WyattCast44">
     <title>{{ ($pageMeta) ? $pageMeta['title'] . ' - ' : ''  }}{{ config('app.name') }}</title>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" rel="preload">
 
     <!-- Styles -->
     <style>[x-cloak] {display: none !important;}</style>
