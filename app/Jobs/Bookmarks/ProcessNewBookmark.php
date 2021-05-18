@@ -15,15 +15,15 @@ class ProcessNewBookmark implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function __construct(public Bookmark $bookmark): void {}
+    public function __construct(public Bookmark $bookmark) {}
 
     public function handle(Embed $client): void
     {
-        $embed = $client->create($this->link->url);
+        $embed = $client->create($this->bookmark->url);
         
         try {
             $this->bookmark->title = $embed->data['title'];
-            $this->bookmark->title = $embed->data['description'];
+            $this->bookmark->description = $embed->data['description'];
             $this->bookmark->type = $embed->data['type'];
             $this->bookmark->data = $embed->data->toArray();
             $this->bookmark->status = Bookmark::$states['processed'];

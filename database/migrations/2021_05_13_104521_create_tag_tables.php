@@ -13,6 +13,7 @@ class CreateTagTables extends Migration
             $table->id();
             $table->string('name')->index();
             $table->string('slug')->index()->unique();
+            $table->boolean('public')->index()->default(true);
             $table->timestamps();
         });
 

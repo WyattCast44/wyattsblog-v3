@@ -13,4 +13,13 @@ class ProjectController extends Controller
 
         return view('projects.index');
     }
+
+    public function show()
+    {
+        view()->share('pageMeta', [
+            'title' => 'My Project',
+        ]);
+
+        return view('projects.show.index');
+    }
 }

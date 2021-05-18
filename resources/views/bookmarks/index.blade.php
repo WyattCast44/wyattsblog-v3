@@ -1,4 +1,6 @@
-<x-layouts.page-without-nav>
+@extends('bookmarks.layout')
+
+@section('page')
 
     <div class="max-w-xl pt-10 mx-4 space-y-10 lg:mx-auto">
 
@@ -14,8 +16,12 @@
 
     <div class="max-w-xl mx-auto mt-16 mb-10">
 
-        {{-- @include('format') --}}
+        <ul class="flex flex-col divide-y divide-gray-300">
+            @foreach ($bookmarks as $bookmark)
+                @include('bookmarks.partials.bookmark-item')
+            @endforeach
+        </ul>
 
     </div>
 
-</x-layouts.page-without-nav>
+@endsection

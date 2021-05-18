@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Tag;
-use Illuminate\Support\Str;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TagFactory extends Factory
+class ProjectFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Tag::class;
+    protected $model = Project::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +22,7 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $name = Str::title($this->faker->unique()->word),
-            'slug' => Str::slug($name),
-            'public' => (bool) rand(0, 1),
+            //
         ];
     }
 }

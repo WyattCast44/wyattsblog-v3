@@ -20,18 +20,16 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Scripts -->
-    <livewire:scripts />
     @stack('head:scripts')
     <script src="{{ mix('js/app.js') }}" defer></script>
-    {{-- <script src="{{ mix('js/console.js') }}" defer></script> --}}
 
 </head>
 <body class="antialiased text-gray-700 bg-gray-50 @stack('bodyClasses')" @stack('bodyAttributes')>
 
     @yield('body')
 
-    <!-- Scripts -->
     @stack('scripts')
-    
+    <livewire:scripts />
+
 </body>
 </html>

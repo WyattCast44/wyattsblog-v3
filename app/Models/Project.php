@@ -2,38 +2,34 @@
 
 namespace App\Models;
 
-use App\Models\Post;
-use App\Models\Bookmark;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Tag extends Model
+class Project extends Model
 {
     use HasFactory;
-
-    protected $guarded = [];
 
     public function getRouteKeyName(): string
     {
         return 'slug';
     }
 
-    /*
+     /*
     |--------------------------------------------------------------------------
     | Scopes/Queries
     |--------------------------------------------------------------------------
     */
 
-    public function scopePublic(Builder $query): Builder
-    {
-        return $query->where('public', true);
-    }
+    //
 
-    public function scopePrivate(Builder $query): Builder
-    {
-        return $query->where('public', false);
-    }
+    /*
+    |--------------------------------------------------------------------------
+    | Actions/Abilities
+    |--------------------------------------------------------------------------
+    */
+
+   //
 
     /*
     |--------------------------------------------------------------------------
@@ -41,13 +37,8 @@ class Tag extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function bookmarks()
+    public function tags()
     {
-        return $this->morphedByMany(Bookmark::class, 'taggable');
-    }
-    
-    public function posts()
-    {
-        return $this->morphedByMany(Post::class, 'taggable');
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 }

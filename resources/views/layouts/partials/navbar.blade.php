@@ -25,17 +25,22 @@
                     <x-icon-sparkles class="w-5 h-5 mr-2" /> Projects
                 </a>
                 
-                <a href="{{ route('timeline.index') }}" class="flex items-center font-semibold rounded hover:no-underline hover:bg-gray-300 px-2.5 py-1.5 hover:text-gray-900 hover:shadow-inner focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ring-offset-gray-200 focus:bg-gray-300 focus:no-underline focus:text-gray-900">
+                {{-- <a href="{{ route('timeline.index') }}" class="flex items-center font-semibold rounded hover:no-underline hover:bg-gray-300 px-2.5 py-1.5 hover:text-gray-900 hover:shadow-inner focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ring-offset-gray-200 focus:bg-gray-300 focus:no-underline focus:text-gray-900">
                     <x-icon-collection class="w-5 h-5 mr-2" /> Timeline
+                </a> --}}
+
+                <a href="{{ route('bookmarks.index') }}" class="flex items-center font-semibold rounded hover:no-underline hover:bg-gray-300 px-2.5 py-1.5 hover:text-gray-900 hover:shadow-inner focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ring-offset-gray-200 focus:bg-gray-300 focus:no-underline focus:text-gray-900">
+                    <x-icon-link class="w-5 h-5 mr-2" /> Bookmarks
                 </a>
 
-                <div class="relative" x-data="{ open: false }">
+                {{-- <div class="relative" x-data="{ open: false }">
 
                     <button x-on:click="open=!open" class="flex items-center font-semibold rounded hover:no-underline hover:bg-gray-300 px-2.5 py-1.5 hover:text-gray-900 hover:shadow-inner focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ring-offset-gray-200 focus:bg-gray-300 focus:no-underline focus:text-gray-900">
                         <x-icon-menu class="w-5 h-5 mr-2" /> Other
                     </button>
 
                     <div 
+                        x-cloak
                         x-show="open"
                         x-transition:enter="transition ease-out duration-200"
                         x-transition:enter-start="opacity-0 translate-y-1"
@@ -65,9 +70,7 @@
 
                     </div>
 
-                </div>
-
-                
+                </div> --}}               
 
             </nav>
 

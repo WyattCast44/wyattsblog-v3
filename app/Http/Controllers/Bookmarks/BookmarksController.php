@@ -1,19 +1,41 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Bookmarks;
 
 use App\Models\Tag;
 use App\Models\Bookmark;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Symfony\Component\HttpFoundation\Response;
+
+use function React\Promise\reduce;
 
 class BookmarksController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth:sanctum']);
+        $this->middleware(['auth'])->only(['create', 'store']);
+    }
+
+    public function index()
+    {
+        $bookmarks = Bookmark::processed()
+            ->with(['tags'])
+            ->latest()
+            ->get();
+
+        return view('bookmarks.index', [
+            'bookmarks' => $bookmarks,
+        ]);
+    }
+
+    public function create()
+    {
+        $tags = Tag::all();
+
+        return view('bookmarks.create.index', [
+            'tags' => $tags,
+        ]);
     }
 
     public function store(Request $request)
@@ -47,6 +69,6 @@ class BookmarksController extends Controller
             $bookmark->tags()->sync($tags->pluck('id'));
         }
 
-        return response('',  Response::HTTP_CREATED);
+        return redirect()->route('bookmarks.index');
     }
 }

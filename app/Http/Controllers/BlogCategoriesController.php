@@ -31,6 +31,10 @@ class BlogCategoriesController extends Controller
         $tag->load('posts');
 
         $posts = $tag->posts->filter(function($post) {
+            if (auth()->check()) {
+                return true;
+            }
+            
             return ($post->published);
         });
 

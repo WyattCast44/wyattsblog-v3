@@ -9,6 +9,8 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PostMediaController;
 use App\Http\Controllers\BlogCategoriesController;
+use App\Http\Controllers\Bookmarks\BookmarksController;
+use App\Http\Controllers\Bookmarks\BookmarksCategoriesController;
 
 // General
 Route::get('/', WelcomeController::class)->name('welcome');
@@ -26,9 +28,14 @@ Route::get('/posts/{post}/edit', PostEdit::class)->name('posts.edit');
 
 // Projects
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::view('/projects/katy-rose-floral', 'projects.pages.katyrosefloral')->name('projects.show.katyrosefloral');
 
 // Timeline
 Route::view('/timeline', 'timeline.index')->name('timeline.index');
 
 // Bookmarks
-Route::view('/bookmarks', 'bookmarks.index')->name('bookmarks.index');
+Route::get('/bookmarks', [BookmarksController::class, 'index'])->name('bookmarks.index');
+Route::get('/bookmarks/create', [BookmarksController::class, 'create'])->name('bookmarks.create');
+Route::post('/bookmarks', [BookmarksController::class, 'store'])->name('bookmarks.store');
+Route::get('/bookmarks/tags', [BookmarksCategoriesController::class, 'index'])->name('bookmarks.categories');
+Route::get('/bookmarks/tags/{tag}', [BookmarksCategoriesController::class, 'show'])->name('bookmarks.categories.show');

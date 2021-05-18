@@ -22,7 +22,14 @@ class BookmarkFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'url' => $url = $this->faker->url,
+            'url_hash' => md5($url),
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'type' => 'link',
+            'data' => null,
+            'status' => Bookmark::$states['waiting'],
+            'public' => (bool) rand(0, 1),
         ];
     }
 }

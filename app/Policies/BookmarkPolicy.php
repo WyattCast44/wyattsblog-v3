@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Post;
+use App\Models\Bookmark;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PostPolicy
+class BookmarkPolicy
 {
     use HandlesAuthorization;
 
@@ -25,18 +25,12 @@ class PostPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Bookmark  $bookmark
      * @return mixed
      */
-    public function view(?User $user, Post $post)
+    public function view(?User $user, Bookmark $bookmark)
     {
-        // if post is published everyone can view
-        if ($post->published) {
-            return true;
-        }
-
-        // Else only authenticated users can view
-        return auth()->check();
+        //
     }
 
     /**
@@ -54,10 +48,10 @@ class PostPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Bookmark  $bookmark
      * @return mixed
      */
-    public function update(?User $user, Post $post)
+    public function update(?User $user, Bookmark $bookmark)
     {
         return auth()->check();
     }
@@ -66,10 +60,10 @@ class PostPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Bookmark  $bookmark
      * @return mixed
      */
-    public function delete(?User $user, Post $post)
+    public function delete(?User $user, Bookmark $bookmark)
     {
         return auth()->check();
     }
