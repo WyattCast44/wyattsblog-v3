@@ -25,13 +25,20 @@
 
     </div>
 
-    <div class="max-w-xl mx-4 mt-10 mb-16 lg:mx-auto">
+    <div class="grid max-w-2xl grid-cols-3 gap-4 mx-4 mt-10 mb-16 lg:mx-auto">
 
-        <ul class="flex flex-col divide-y">
-            
-        </ul>
+        <div class="relative border rounded bg-gray-50 hover:shadow aspect-w-1 aspect-h-1">
 
-    </div>
+            <a href="{{ route('projects.show.katyrosefloral') }}" class="absolute inset-0 z-10 rounded focus:outline-none focus:ring-2 ring-offset-2 focus:ring-purple-500 hover:ring-purple-500 ring-offset-gray-200 hover:ring-2">
+                <span class="sr-only">View project</span>
+            </a>
+        
+            <object class="p-10 overflow-hidden border-2 border-gray-400 rounded " style="zoom: 0.35" alt="View product customers" tabindex="-1">
+                @include('projects.pages.katyrosefloral.content')    
+            </object>
+        
+        </div>
     
+    </div>    
 
 </x-layouts.page-with-one-nav>

@@ -28,7 +28,7 @@ Route::get('/posts/{post}/edit', PostEdit::class)->name('posts.edit');
 
 // Projects
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-Route::view('/projects/katy-rose-floral', 'projects.pages.katyrosefloral')->name('projects.show.katyrosefloral');
+Route::view('/projects/katy-rose-floral', 'projects.pages.katyrosefloral.index')->name('projects.show.katyrosefloral');
 
 // Timeline
 Route::view('/timeline', 'timeline.index')->name('timeline.index');
