@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Livewire\Posts\PostEdit;
 use App\Http\Livewire\Posts\PostShow;
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Posts\PostCreate;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\WelcomeController;
@@ -26,7 +24,8 @@ Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
 Route::get('/posts/create', [PostsController::class, 'create'])->name('posts.create');
 Route::post('/posts/media/upload', PostMediaController::class)->name('posts.media.upload');
 Route::get('/posts/{post}', PostShow::class)->name('posts.show');
-Route::get('/posts/{post}/edit', PostEdit::class)->name('posts.edit');
+Route::post('/posts/{post}', [PostsController::class, 'update'])->name('posts.update');
+Route::get('/posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
 
 // Projects
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
