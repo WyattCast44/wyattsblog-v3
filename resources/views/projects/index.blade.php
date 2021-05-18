@@ -1,4 +1,4 @@
-<x-layouts.page-with-one-nav>
+<x-layouts.page-without-nav>
 
     <x-slot name="nav">
         
@@ -41,4 +41,4 @@
     
     </div>    
 
-</x-layouts.page-with-one-nav>
+</x-layouts.page-without-nav>
