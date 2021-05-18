@@ -20,6 +20,7 @@
 
     <!-- Scripts -->
     @stack('head:scripts')
+    <script src="{{ mix('vendor/livewire/livewire.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
 
 </head>
@@ -28,7 +29,6 @@
     @yield('body')
 
     @stack('scripts')
-    <livewire:scripts />
 
 </body>
 </html>

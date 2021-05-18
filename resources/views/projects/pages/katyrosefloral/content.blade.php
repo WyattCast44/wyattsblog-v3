@@ -28,7 +28,7 @@
             I really liked the designs (big suprise 😉) but I really struggled to fit the client's logo into my "designs". The logo itself is stunning but was designed by a print designer with the purpose of printing business cards. It features some very intricate text and floral elements - elements that make the traditional top left logo treatment impractical.
         </p>
 
-        <img src="{{ asset('img/katyrosefloral-logo.png') }}" alt="Katy Rose Floral Logo" class="max-w-md mx-auto">
+        <img src="{{ asset('img/katyrosefloral-logo.png') }}" alt="Katy Rose Floral Logo" class="">
 
         <p>
             After showing intial designs to the client we were able to refine a vision for a clean and simple design. With this feedback in hand, I went back to the drawing board (or <a href="https://excalidraw.com/" target="_blank" rel="noopener">excalidraw</a> to be specific).
