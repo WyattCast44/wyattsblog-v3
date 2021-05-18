@@ -58,7 +58,10 @@ class Bookmark extends Model
     |--------------------------------------------------------------------------
     */
 
-    //
+    public function hasProcessedSuccessfully(): bool
+    {
+        return $this->status === self::$states['processed'];
+    }
 
     /*
     |--------------------------------------------------------------------------

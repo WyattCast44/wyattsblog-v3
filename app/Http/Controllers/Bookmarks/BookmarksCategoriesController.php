@@ -30,7 +30,9 @@ class BookmarksCategoriesController extends Controller
 
         $tag->load('bookmarks');
 
-        $bookmarks = $tag->bookmarks;
+        $bookmarks = $tag->bookmarks->filter(function($bookmark) {
+            return $bookmark->hasProcessedSuccessfully();
+        });
 
         return view('bookmarks.categories.show', [
             'bookmarks' => $bookmarks,
