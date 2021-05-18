@@ -131,7 +131,7 @@
                                 'uploadImage': true,
                                 'imageMaxSize': (1024 * 1024 * 5),
                                 'imageUploadEndpoint': '{{ route('posts.media.upload') }}',
-                                'status': false,
+                                'status': true,
                             }})
 
                         window.easyMDE.codemirror.on('change', function () {

@@ -8,6 +8,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PostMediaController;
+use App\Http\Controllers\Posts\PostsController;
 use App\Http\Controllers\BlogCategoriesController;
 use App\Http\Controllers\Bookmarks\BookmarksController;
 use App\Http\Controllers\Bookmarks\BookmarksCategoriesController;
@@ -21,7 +22,8 @@ Route::get('/blog/tags', [BlogCategoriesController::class, 'index'])->name('blog
 Route::get('/blog/tags/{tag}', [BlogCategoriesController::class, 'show'])->name('blog.categories.show');
 
 // Posts
-Route::get('/posts/create', PostCreate::class)->name('posts.create');
+Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
+Route::get('/posts/create', [PostsController::class, 'create'])->name('posts.create');
 Route::post('/posts/media/upload', PostMediaController::class)->name('posts.media.upload');
 Route::get('/posts/{post}', PostShow::class)->name('posts.show');
 Route::get('/posts/{post}/edit', PostEdit::class)->name('posts.edit');
