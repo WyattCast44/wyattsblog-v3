@@ -62,8 +62,6 @@
                     <script>
                         document.addEventListener("livewire:load", function(event) {
 
-                            console.log("here1");
-                            
                             var input = document.getElementById('tag-input')
                             
                             var tagify = new Tagify(input, {
@@ -116,8 +114,6 @@
                     
                     document.addEventListener("livewire:load", function() {
 
-                        console.log("here");
-
                         window.easyMDE = new EasyMDE({ 
                             element: document.querySelector("#content"), ... {
                                 'minHeight': '300px',
@@ -127,7 +123,7 @@
                                 'uploadImage': true,
                                 'imageMaxSize': (1024 * 1024 * 5),
                                 'imageUploadEndpoint': '{{ route('posts.media.upload') }}',
-                                'status': false,
+                                'status': true,
                             }})
 
                         window.easyMDE.codemirror.on('change', function () {
