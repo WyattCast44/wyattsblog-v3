@@ -11,7 +11,7 @@
         
     </nav>
 
-    <a href={{ $bookmark->url }}" target="_blank" rel="noopener" class="inline-block text-xl font-semibold">
+    <a href="{{ $bookmark->url }}" target="_blank" rel="noopener" class="inline-block text-xl font-semibold">
         {{ Str::limit($bookmark->title , 75, '...')}}
     </a>
 
