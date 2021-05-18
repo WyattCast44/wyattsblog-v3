@@ -9,7 +9,7 @@
         </h1>
 
         <p class="font-mono">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas eaque, officiis dolorem impedit sunt saepe commodi vero atque necessitatibus, placeat porro et molestias assumenda veniam nobis neque quos earum! Ex.
+            There are so many amazing websites and resources on the web, to many to keep track of! I'm done losing the gems I find, I'm going to keep track here. Maybe you'll find something useful... maybe not 🤷‍♂️
         </p>
 
     </div>
