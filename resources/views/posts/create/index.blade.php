@@ -61,6 +61,8 @@
                 @push('scripts')
                     <script>
                         document.addEventListener("livewire:load", function(event) {
+
+                            console.log("here1");
                             
                             var input = document.getElementById('tag-input')
                             
@@ -101,9 +103,7 @@
                 </span>
                 
                 <div wire:ignore>
-
                     <textarea name="post.content" id="content" wire:model="post.content"></textarea>
-                    
                 </div>
         
                 <x-errors.inline key="post.content" />
@@ -115,6 +115,8 @@
                 <script>
                     
                     document.addEventListener("livewire:load", function() {
+
+                        console.log("here");
 
                         window.easyMDE = new EasyMDE({ 
                             element: document.querySelector("#content"), ... {
