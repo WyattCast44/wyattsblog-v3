@@ -17,6 +17,10 @@ class PostsController extends Controller
 
     public function create()
     {
+        view()->share('pageMeta', [
+            'title' => 'Create New Post'
+        ]);
+
         $this->authorize('create', Post::class);
 
         $tags = Tag::all();
@@ -66,6 +70,10 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
         $this->authorize('update', $post);
+
+        view()->share('pageMeta', [
+            'title' => 'Update Post - ' . $post->title,
+        ]);
 
         $post->load(['tags']);
 

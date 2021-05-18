@@ -19,6 +19,11 @@ class BookmarksController extends Controller
 
     public function index()
     {
+        view()->share('pageMeta', [
+            'title' => 'My Bookmarks',
+            'description' => 'There are so many amazing websites and resources on the web, too many to keep track of! I\'m done losing the gems I find, I\'m going to keep track here.',
+        ]);
+
         $bookmarks = Bookmark::processed()
             ->with(['tags'])
             ->latest()
@@ -31,6 +36,10 @@ class BookmarksController extends Controller
 
     public function create()
     {
+        view()->share('pageMeta', [
+            'title' => 'Add Bookmark'
+        ]);
+
         $tags = Tag::all();
 
         return view('bookmarks.create.index', [
