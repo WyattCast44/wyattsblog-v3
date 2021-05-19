@@ -52,7 +52,7 @@
 
                     @push('scripts')
                         <script>
-                            document.addEventListener("livewire:load", function(event) {
+                            document.addEventListener(":load", function(event) {
                                 
                                 var input = document.getElementById('tag-input')
                                 

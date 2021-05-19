@@ -17,9 +17,6 @@
         "laravel/telescope": "^4.4",
         "laravel/tinker": "^2.5",
         "league/commonmark": "^1.4",
-        "livewire-ui/modal": "^0.1.2",
-        "livewire-ui/spotlight": "^0.1.6",
-        "livewire/livewire": "^2.4",
         "spatie/laravel-webhook-client": "^2.7",
         "watson/active": "^6.0",
         "wyattcast44/laravelschema": "^3.0"
