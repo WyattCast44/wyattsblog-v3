@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Product;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -11,9 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory;
-    use Notifiable;
-    use HasApiTokens;
+    use HasFactory, Notifiable, HasApiTokens;
 
     protected $guarded = [];
 
