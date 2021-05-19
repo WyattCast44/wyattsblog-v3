@@ -16,7 +16,7 @@
             @foreach ($tags as $tag)
                 <li class="relative p-12 border border-gray-400 rounded">
                     
-                    <a href="{{ route('bookmarks.categories.show', $tag) }}" class="absolute flex justify-center inset-0 items-center font-semibold rounded hover:no-underline hover:bg-gray-200 px-2.5 py-1.5 hover:shadow-inner focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ring-offset-gray-200 focus:bg-gray-200 focus:no-underline focus:text-gray-900">
+                    <a href="{{ route('bookmarks.categories.show', $tag) }}" class="absolute flex justify-center inset-0 items-center font-semibold rounded hover:no-underline hover:bg-gray-200 px-2.5 py-1.5 hover:shadow-inner focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ring-offset-gray-200 focus:bg-gray-200 focus:no-underline focus:text-gray-900 text-center">
                         {{ $tag->name }}
                     </a>
 
