@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // app('debugbar')->disable();
+        app('debugbar')->disable();
 
         view()->share('pageMeta', null);
 

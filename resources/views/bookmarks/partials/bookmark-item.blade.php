@@ -20,7 +20,7 @@
     </p>
 
     <a href="{{ $bookmark->url }}" target="_blank" rel="noopener" class="inline-flex items-center text-sm group md:text-base">
-        Read More <x-icon-arrow-circle-right class="w-3 h-3 ml-1 text-gray-500 md:w-4 md:h-4 group-hover:text-purple-500" />
+        Check it out <x-icon-arrow-circle-right class="w-3 h-3 ml-1 text-gray-500 md:w-4 md:h-4 group-hover:text-purple-500" />
     </a>
 
 </li>
