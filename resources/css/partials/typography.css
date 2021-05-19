@@ -41,3 +41,7 @@ blockquote > p::selection {
 .prose pre code::selection {
     @apply text-purple-900;
 }
+
+.prose iframe {
+    @apply w-full min-h-[325px];
+}
