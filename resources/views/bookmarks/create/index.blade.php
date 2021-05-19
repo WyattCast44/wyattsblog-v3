@@ -52,7 +52,7 @@
 
                     @push('scripts')
                         <script>
-                            document.addEventListener(":load", function(event) {
+                            document.addEventListener("DOMContentLoaded", function(event) {
                                 
                                 var input = document.getElementById('tag-input')
                                 

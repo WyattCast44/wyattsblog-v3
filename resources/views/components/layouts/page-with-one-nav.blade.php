@@ -6,7 +6,7 @@
 
         <div class="px-2 md:px-4 md:py-2.5 py-1.5 mx-5 md:mx-10 bg-gray-200 bg-opacity-75 border border-b-0 border-gray-400 shadow-sm rounded-t-sm print:hidden">
 
-            <nav class="flex items-center w-full space-x-4 overflow-x-scroll md:overflow-auto">
+            <nav class="flex items-center w-full space-x-4 overflow-x-scroll md:overflow-visible">
                 
                {{ $nav }}
 
