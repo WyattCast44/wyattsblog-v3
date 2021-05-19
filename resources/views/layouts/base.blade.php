@@ -19,6 +19,9 @@
 
     <!-- Scripts -->
     @stack('head:scripts')
+    @env('production')
+        <script src="https://reptile.wyattblogs.com/script.js" data-site="RJDYYITB" defer></script>
+    @endenv
     <script src="{{ mix('js/app.js') }}" defer></script>
 
 </head>
