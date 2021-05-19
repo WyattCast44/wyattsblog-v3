@@ -15,18 +15,42 @@
                 </a>
 
                 @if ($post->published)
-                    <button wire:click="unpublish" class="px-3.5 py-1.5 hover:bg-gray-200 hover:no-underline w-full focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-500 font-semibold text-left hover:text-purple-500">
-                        Unpublish
-                    </button>
+                
+                    <form action="{{ route('posts.unpublish', $post) }}" method="POST">
+                        
+                        @csrf
+                        @method('delete')
+
+                        <button type="submit" class="px-3.5 py-1.5 hover:bg-gray-200 hover:no-underline w-full focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-500 font-semibold text-left hover:text-purple-500">
+                            Unpublish
+                        </button>
+
+                    </form>
+                    
                 @else
-                    <button wire:click="publish" class="px-3.5 py-1.5 hover:bg-gray-200 hover:no-underline w-full focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-500 font-semibold text-left hover:text-purple-500">
-                        Publish
-                    </button>
+
+                    <form action="{{ route('posts.publish', $post) }}" method="POST">
+                            
+                        @csrf
+
+                        <button type="submit" class="px-3.5 py-1.5 hover:bg-gray-200 hover:no-underline w-full focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-500 font-semibold text-left hover:text-purple-500">
+                            Publish
+                        </button>
+
+                    </form>
+                    
                 @endif
 
-                <button wire:click="delete" class="px-3.5 py-1.5 hover:bg-gray-200 hover:no-underline w-full focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-500 font-semibold text-left hover:text-purple-500">
-                    Delete Post
-                </button>
+                <form action="{{ route('posts.delete', $post) }}" method="POST">
+                            
+                    @csrf
+                    @method('delete')
+
+                    <button type="submit" class="px-3.5 py-1.5 hover:bg-gray-200 hover:no-underline w-full focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-purple-500 font-semibold text-left hover:text-purple-500">
+                        Delete Post
+                    </button>
+
+                </form>
 
             </nav>
         </div>

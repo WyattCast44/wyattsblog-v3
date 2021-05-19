@@ -10,6 +10,7 @@ use App\Http\Controllers\Posts\PostsController;
 use App\Http\Controllers\BlogCategoriesController;
 use App\Http\Controllers\Bookmarks\BookmarksController;
 use App\Http\Controllers\Bookmarks\BookmarksCategoriesController;
+use App\Http\Controllers\Posts\PublishedPostsController;
 
 // General
 Route::get('/', WelcomeController::class)->name('welcome');
@@ -22,10 +23,16 @@ Route::get('/blog/tags/{tag}', [BlogCategoriesController::class, 'show'])->name(
 // Posts
 Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
 Route::get('/posts/create', [PostsController::class, 'create'])->name('posts.create');
-Route::post('/posts/media/upload', PostMediaController::class)->name('posts.media.upload');
-Route::get('/posts/{post}', PostShow::class)->name('posts.show');
+Route::get('/posts/{post}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post}', [PostsController::class, 'update'])->name('posts.update');
+Route::delete('/posts/{post}', [PostsController::class, 'delete'])->name('posts.delete');
 Route::get('/posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
+Route::post('/posts/{post}/publish', [PublishedPostsController::class, 'create'])->name('posts.publish');
+Route::delete('/posts/{post}/unpublish', [PublishedPostsController::class, 'delete'])->name('posts.unpublish');
+
+
+// Posts Media
+Route::post('/posts/media/upload', PostMediaController::class)->name('posts.media.upload');
 
 // Projects
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');

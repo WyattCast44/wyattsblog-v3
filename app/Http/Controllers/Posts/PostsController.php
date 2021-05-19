@@ -5,41 +5,47 @@ namespace App\Http\Controllers\Posts;
 use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 
 class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth'])->only(['create', 'store', 'edit', 'update']);
+        $this->middleware(['auth'])->except(['show']);
+    }
+
+    public function show(Post $post)
+    {
+        $this->authorize('view', $post);
+
+        view()->share('pageMeta', [
+            'title' => $post->title,
+            'description' => Str::limit($post->excerpt, 255, '...'),
+        ]);
+
+        return view('posts.show.index', [
+            'post' => $post,
+        ]);
     }
 
     public function create()
     {
+        $this->authorize('create', Post::class);
+
         view()->share('pageMeta', [
             'title' => 'Create New Post'
         ]);
 
-        $this->authorize('create', Post::class);
-
-        $tags = Tag::all();
-
         return view('posts.create.index', [
-            'tags' => $tags,
+            'tags' => Tag::all(),
         ]);
     }
 
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
         $this->authorize('create', Post::class);
-
-        $this->validate($request, [
-            'title' => ['required', 'string', 'max:255', 'unique:posts,title'],
-            'tags' => ['nullable', 'string'],
-            'excerpt' => ['required', 'string', 'max:512'],
-            'content' => ['required', 'string'],
-        ]);
 
         $post = Post::create([
             'title' => $request->title,
@@ -48,17 +54,15 @@ class PostsController extends Controller
             'content' => $request->content,
         ]);
 
-        if($request->tags != null) {
+        if($request->hasTags()) {
         
-            $tags = collect(json_decode($request->tags))->pluck('value')->toArray();
-
-            $tags = collect($tags)->map(function($tag) {
-    
-                return Tag::firstOrCreate([
-                    'name' => $tag,
-                    'slug' => Str::slug($tag),
-                ]);
-    
+            $tags = collect(json_decode($request->tags))
+                ->pluck('value')
+                ->map(function($tag) {
+                    return Tag::firstOrCreate([
+                        'name' => $tag,
+                        'slug' => Str::slug($tag),
+                    ]);
             });
 
             $post->tags()->sync($tags->pluck('id'));
@@ -75,26 +79,15 @@ class PostsController extends Controller
             'title' => 'Update Post - ' . $post->title,
         ]);
 
-        $post->load(['tags']);
-
-        $tags = Tag::all();
-
         return view('posts.edit.index', [
-            'post' => $post,
-            'tags' => $tags,
+            'post' => $post->load(['tags']),
+            'tags' => Tag::all(),
         ]);
     }
 
-    public function update(Post $post, Request $request)
+    public function update(Post $post, UpdatePostRequest $request)
     {
         $this->authorize('update', $post);
-
-        $this->validate($request, [
-            'title' => ['required', 'string', 'max:255'],
-            'tags' => ['nullable', 'string'],
-            'excerpt' => ['required', 'string', 'max:512'],
-            'content' => ['required', 'string'],
-        ]);
 
         $post->update([
             'title' => $request->title,
@@ -103,22 +96,29 @@ class PostsController extends Controller
             'content' => $request->content,
         ]);
 
-        if($request->tags != null) {
+        if($request->hasTags()) {
         
-            $tags = collect(json_decode($request->tags))->pluck('value')->toArray();
-
-            $tags = collect($tags)->map(function($tag) {
-    
-                return Tag::firstOrCreate([
-                    'name' => $tag,
-                    'slug' => Str::slug($tag),
-                ]);
-    
+            $tags = collect(json_decode($request->tags))
+                ->pluck('value')
+                ->map(function($tag) {
+                    return Tag::firstOrCreate([
+                        'name' => $tag,
+                        'slug' => Str::slug($tag),
+                    ]);
             });
 
             $post->tags()->sync($tags->pluck('id'));
         }
 
         return redirect()->route('posts.show', $post);
+    }
+
+    public function delete(Post $post)
+    {
+        $this->authorize('delete', $post);
+
+        $post->delete();
+
+        return redirect()->route('blog.index');
     }
 }
