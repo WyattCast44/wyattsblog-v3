@@ -76,6 +76,54 @@
 
         </div>
 
+        <div class="relative md:hidden" x-data="{ open: false }">
+
+            <button x-on:click="open=!open" class="flex items-center font-semibold rounded hover:no-underline hover:bg-gray-300 px-2.5 py-1.5 hover:text-gray-900 hover:shadow-inner focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ring-offset-gray-200 focus:bg-gray-300 focus:no-underline focus:text-gray-900">
+                <x-icon-menu class="w-5 h-5 mr-2" /> Menu
+            </button>
+
+            <div 
+                x-cloak
+                x-show="open"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 translate-y-1"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 translate-y-1"
+                x-on:click.away="open=false"
+                class="absolute z-10 w-screen max-w-xs px-2 mt-3 transform -translate-x-1/1 -right-1 sm:px-0">
+
+                <div class="overflow-hidden border border-gray-400 rounded shadow-lg ring-1 ring-black ring-opacity-5">
+
+                    <div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
+
+                        <a href="{{ route('blog.index') }}" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-200 hover:no-underline">
+                            <p class="text-base font-medium text-gray-900">
+                                Blog
+                            </p>
+                        </a>
+
+                        <a href="{{ route('projects.index') }}" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-200 hover:no-underline">
+                            <p class="text-base font-medium text-gray-900">
+                                Projects
+                            </p>
+                        </a>
+
+                        <a href="{{ route('bookmarks.index') }}" class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-200 hover:no-underline">
+                            <p class="text-base font-medium text-gray-900">
+                                Bookmarks
+                            </p>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
         <!-- profile dropdown -->
         <div x-data="{ open: false }" class="relative hidden w-10 h-10 group md:block">
             
