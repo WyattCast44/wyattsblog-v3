@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Livewire\Posts\PostShow;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
@@ -9,8 +8,8 @@ use App\Http\Controllers\PostMediaController;
 use App\Http\Controllers\Posts\PostsController;
 use App\Http\Controllers\BlogCategoriesController;
 use App\Http\Controllers\Bookmarks\BookmarksController;
-use App\Http\Controllers\Bookmarks\BookmarksCategoriesController;
 use App\Http\Controllers\Posts\PublishedPostsController;
+use App\Http\Controllers\Bookmarks\BookmarksCategoriesController;
 
 // General
 Route::get('/', WelcomeController::class)->name('welcome');
@@ -29,7 +28,6 @@ Route::delete('/posts/{post}', [PostsController::class, 'delete'])->name('posts.
 Route::get('/posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
 Route::post('/posts/{post}/publish', [PublishedPostsController::class, 'create'])->name('posts.publish');
 Route::delete('/posts/{post}/unpublish', [PublishedPostsController::class, 'delete'])->name('posts.unpublish');
-
 
 // Posts Media
 Route::post('/posts/media/upload', PostMediaController::class)->name('posts.media.upload');
