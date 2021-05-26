@@ -13,7 +13,7 @@ class BookmarksCategoriesController extends Controller
             'title' => 'Bookmark Categories',
         ]);
 
-        $tags = Tag::with(['bookmarks'])->get()->filter(function($tag) {
+        $tags = Tag::with(['bookmarks'])->orderBy('name')->get()->filter(function($tag) {
             return ($tag->bookmarks()->processed()->count() > 0);
         });
 
