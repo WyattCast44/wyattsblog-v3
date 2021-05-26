@@ -30,7 +30,7 @@ class BookmarksCategoriesController extends Controller
 
         $tag->load('bookmarks');
 
-        $bookmarks = $tag->bookmarks->filter(function($bookmark) {
+        $bookmarks = $tag->bookmarks()->latest()->get()->filter(function($bookmark) {
             return $bookmark->hasProcessedSuccessfully();
         });
 
