@@ -14,26 +14,10 @@ class AddPrivateTagToTagsTable extends Migration
      */
     public function up()
     {
-        Schema::table('tags', function (Blueprint $table) {
-            $table->boolean('public')->index()->default(true);
-        });
-
         Tag::create([
             'name' => 'Private',
             'slug' => 'private',
             'public' => false,
         ]);
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('tags', function (Blueprint $table) {
-            $table->dropColumn('public');
-        });
     }
 }
