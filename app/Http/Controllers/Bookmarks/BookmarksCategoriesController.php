@@ -39,7 +39,10 @@ class BookmarksCategoriesController extends Controller
 
         $bookmarks = $tag->bookmarks()->latest()->get()->filter(function($bookmark) {
             return $bookmark->hasProcessedSuccessfully();
-        });
+        })->filter(function($bookmark) {
+            // Dont show private bookmarks if not logged in
+            return (auth()->check()) ? true : $bookmark->public;
+        });;
 
         return view('bookmarks.categories.show', [
             'bookmarks' => $bookmarks,
