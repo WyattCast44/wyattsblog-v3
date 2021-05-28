@@ -4,8 +4,8 @@
         "id": "bigint",
         "name": "string",
         "slug": "string",
+        "public": "boolean",
         "created_at": "datetime",
-        "updated_at": "datetime",
-        "public": "boolean"
+        "updated_at": "datetime"
     }
 }

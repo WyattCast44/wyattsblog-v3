@@ -9,9 +9,9 @@
         "type": "string",
         "data": "json",
         "status": "string",
+        "public": "boolean",
         "created_at": "datetime",
         "updated_at": "datetime",
-        "deleted_at": "datetime",
-        "public": "boolean"
+        "deleted_at": "datetime"
     }
 }
