@@ -15,6 +15,9 @@ class BookmarksCategoriesController extends Controller
 
         $tags = Tag::with(['bookmarks'])->orderBy('name')->get()->filter(function($tag) {
             return ($tag->bookmarks()->processed()->count() > 0);
+        })->filter(function($tag) {
+            // dont show private tags if not logged in
+            return (auth()->check()) ? true : $tag->public;
         });
 
         return view('bookmarks.categories.index', [
@@ -27,6 +30,10 @@ class BookmarksCategoriesController extends Controller
         view()->share('pageMeta', [
             'title' => 'Bookmark Category ' . $tag->name,
         ]);
+
+        if(!auth()->check() && ! $tag->public) {
+            return abort(404);
+        }
 
         $tag->load('bookmarks');
 

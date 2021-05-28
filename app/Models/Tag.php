@@ -14,6 +14,15 @@ class Tag extends Model
 
     protected $guarded = [];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'public' => 'boolean',
+    ];
+
     public function getRouteKeyName(): string
     {
         return 'slug';

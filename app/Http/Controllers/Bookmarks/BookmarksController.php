@@ -24,10 +24,15 @@ class BookmarksController extends Controller
             'description' => 'There are so many amazing websites and resources on the web, too many to keep track of! I\'m done losing the gems I find, I\'m going to keep track here.',
         ]);
 
-        $bookmarks = Bookmark::processed()
-            ->with(['tags'])
-            ->latest()
-            ->get();
+        $query = Bookmark::processed()
+            ->with(['tags']);
+
+        // Do not include private bookmarks if not logged in
+        if(! auth()->check()) {
+            $query = $query->public();
+        }
+        
+        $bookmarks = $query->latest()->get();
 
         return view('bookmarks.index', [
             'bookmarks' => $bookmarks,
@@ -63,17 +68,28 @@ class BookmarksController extends Controller
         ]);
 
         if($request->tags != null) {
+
+            $public = true;
         
             $tags = collect(json_decode($request->tags))->pluck('value')->toArray();
 
-            $tags = collect($tags)->map(function($tag) {
+            $tags = collect($tags)->map(function($tag) use (&$public) {
     
-                return Tag::firstOrCreate([
+                $tag = Tag::firstOrCreate([
                     'name' => $tag,
                     'slug' => Str::slug($tag),
                 ]);
+
+                if(! $tag->public) {
+                    $public = false;
+                }
     
+                return $tag;
             });
+
+            $bookmark->update([
+                'public' => $public
+            ]);
 
             $bookmark->tags()->sync($tags->pluck('id'));
         }
