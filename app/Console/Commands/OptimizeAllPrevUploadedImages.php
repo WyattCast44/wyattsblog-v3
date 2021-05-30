@@ -55,6 +55,22 @@ class OptimizeAllPrevUploadedImages extends Command
             ImageOptimizer::optimize((string) $file);
         }
 
+        $finder = new Finder();
+
+        $finder->files()
+            ->name('*.png')
+            ->name('*.jpeg')
+            ->name('*.jpg')
+            ->name('*.jiff')
+            ->name('*.gif');
+
+        foreach ($finder->in(public_path()) as $file) {
+            logger('Optimizing Image: ', [
+                'path' => $file,
+            ]);
+            ImageOptimizer::optimize((string) $file);
+        }
+
         return 0;
     }
 }
