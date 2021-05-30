@@ -20,6 +20,10 @@ class PostMediaController extends Controller
             ], 400);
         }
 
+        $this->validate($request, [
+            'image' => ['required', 'image', 'max:10000']
+        ]);
+
         $path = 'storage/' . $request->file('image')->storePublicly('media', 'public');
 
         return response([
